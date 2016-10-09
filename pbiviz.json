@@ -1,0 +1,24 @@
+{
+  "visual": {
+    "name": "dtreeVisual1",
+    "displayName": "decision tree",
+    "guid": "PBI_CV_807533A8_7DBB_41E8_AF46_0450D3447E61",
+    "visualClassName": "Visual",
+    "version": "1.0.0",
+    "description": "",
+    "supportUrl": "",
+    "gitHubUrl": ""
+  },
+  "apiVersion": "1.2.0",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": "dependencies.json"
+}
