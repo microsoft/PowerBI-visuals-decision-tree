@@ -24,26 +24,21 @@
  *  THE SOFTWARE.
  */
 module powerbi.extensibility.visual {
-
-    export interface ScriptResult {
-        source: string;
-        provider: string;
-    }
     
-     interface VisualSettings1 {//data preprocessing
+     interface VisualSettingsTreeParams {//tree
         show: boolean;
         maxDepth: string;      
         minBucket: string;            
     }
 
-     interface VisualSettings2 {//clustering algo
+     interface VisualSettingsOptParams {//optimization
         show: boolean;
         complexity: string;     
         xval: string;
         maxNumAttempts: string;
      }
 
-     interface VisualSettings3 {//appearance 
+     interface VisualSettingsAdditionalParams {//additional 
         show: boolean;
         showWarnings: boolean;
         showInfo: boolean;
@@ -53,9 +48,9 @@ module powerbi.extensibility.visual {
         private imageDiv: HTMLDivElement;
         private imageElement: HTMLImageElement;
 
-         private settings1: VisualSettings1;
-        private settings2: VisualSettings2;
-        private settings3: VisualSettings3;
+         private settings_tree_params: VisualSettingsTreeParams;
+        private settings_opt_params: VisualSettingsOptParams;
+        private settings_additional_params: VisualSettingsAdditionalParams;
 
         public constructor(options: VisualConstructorOptions) {
             this.imageDiv = document.createElement('div');
@@ -67,18 +62,18 @@ module powerbi.extensibility.visual {
 
             this.imageDiv.appendChild(this.imageElement);
 
-             this.settings1 = <VisualSettings1>{
+             this.settings_tree_params = <VisualSettingsTreeParams>{
                 show: false,
                  maxDepth: "15",
                  minBucket: "2",
             };
-            this.settings2 = <VisualSettings2>{
+            this.settings_opt_params = <VisualSettingsOptParams>{
                 show: false,
                 complexity: "1e-5",              
                 xval: "auto",
                 maxNumAttempts: "10"
             };
-            this.settings3 = <VisualSettings3>{
+            this.settings_additional_params = <VisualSettingsAdditionalParams>{
                 show: false,
                 showWarnings: true,
                 showInfo: true,
@@ -94,21 +89,21 @@ module powerbi.extensibility.visual {
             if (!dataView || !dataView.metadata)
                 return;
 
-            this.settings1 = <VisualSettings1> {
-                show: getValue<boolean>(dataView.metadata.objects, 'settings1', 'show', false),
-                maxDepth: getValue<string>(dataView.metadata.objects, 'settings1', 'maxDepth', "15"),
-                minBucket: getValue<string>(dataView.metadata.objects, 'settings1', 'minBucket', "2"),
+            this.settings_tree_params = <VisualSettingsTreeParams> {
+                show: getValue<boolean>(dataView.metadata.objects, 'settings_tree_params', 'show', false),
+                maxDepth: getValue<string>(dataView.metadata.objects, 'settings_tree_params', 'maxDepth', "15"),
+                minBucket: getValue<string>(dataView.metadata.objects, 'settings_tree_params', 'minBucket', "2"),
             };
-            this.settings2 = <VisualSettings2> {
-                show: getValue<boolean>(dataView.metadata.objects, 'settings2', 'show', false),
-                complexity: getValue<string>(dataView.metadata.objects, 'settings2', 'complexity', "1e-5"),
-                xval: getValue<string>(dataView.metadata.objects, 'settings2', 'xval', "auto"),
-                maxNumAttempts: getValue<string>(dataView.metadata.objects, 'settings2', 'maxNumAttempts', "10"),
+            this.settings_opt_params = <VisualSettingsOptParams> {
+                show: getValue<boolean>(dataView.metadata.objects, 'settings_opt_params', 'show', false),
+                complexity: getValue<string>(dataView.metadata.objects, 'settings_opt_params', 'complexity', "1e-5"),
+                xval: getValue<string>(dataView.metadata.objects, 'settings_opt_params', 'xval', "auto"),
+                maxNumAttempts: getValue<string>(dataView.metadata.objects, 'settings_opt_params', 'maxNumAttempts', "10"),
             };
-             this.settings3 = <VisualSettings3> {
-                show: getValue<boolean>(dataView.metadata.objects, 'settings3', 'show', false),
-                showWarnings: getValue<boolean>(dataView.metadata.objects, 'settings3', 'showWarnings', true),
-                showInfo: getValue<boolean>(dataView.metadata.objects, 'settings3', 'showInfo', true)
+             this.settings_additional_params = <VisualSettingsAdditionalParams> {
+                show: getValue<boolean>(dataView.metadata.objects, 'settings_additional_params', 'show', false),
+                showWarnings: getValue<boolean>(dataView.metadata.objects, 'settings_additional_params', 'showWarnings', true),
+                showInfo: getValue<boolean>(dataView.metadata.objects, 'settings_additional_params', 'showInfo', true)
             };
 
 
@@ -136,37 +131,37 @@ module powerbi.extensibility.visual {
             let objectEnumeration = [];
 
             switch(objectName) {
-                case 'settings1':
+                case 'settings_tree_params':
                     objectEnumeration.push({
                         objectName: objectName,
                         properties: {
-                            show: this.settings1.show,
-                            maxDepth: this.settings1.maxDepth,
-                            minBucket: this.settings1.minBucket,
+                            show: this.settings_tree_params.show,
+                            maxDepth: this.settings_tree_params.maxDepth,
+                            minBucket: this.settings_tree_params.minBucket,
                             
                          },
                         selector: null
                     });
                     break;
-                    case 'settings2':
+                    case 'settings_opt_params':
                     objectEnumeration.push({
                         objectName: objectName,
                         properties: {
-                            show: this.settings2.show,
-                            complexity: this.settings2.complexity,
-                            xval: this.settings2.xval,
-                            maxNumAttempts: this.settings2.maxNumAttempts
+                            show: this.settings_opt_params.show,
+                            complexity: this.settings_opt_params.complexity,
+                            xval: this.settings_opt_params.xval,
+                            maxNumAttempts: this.settings_opt_params.maxNumAttempts
                          },
                         selector: null
                     });
                     break;
-                    case 'settings3':
+                    case 'settings_additional_params':
                     objectEnumeration.push({
                         objectName: objectName,
                         properties: {
-                            show: this.settings3.show,
-                           showWarnings: this.settings3.showWarnings,
-                           showInfo: this.settings3.showInfo,
+                            show: this.settings_additional_params.show,
+                           showWarnings: this.settings_additional_params.showWarnings,
+                           showInfo: this.settings_additional_params.showInfo,
                          },
                         selector: null
                     });

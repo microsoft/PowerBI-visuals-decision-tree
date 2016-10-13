@@ -1,18 +1,18 @@
 {
   "visual": {
-    "name": "dtreeVisual1",
-    "displayName": "decision tree",
+    "name": "PowerBI-visuals-decision-tree",
+    "displayName": "Decision tree",
     "guid": "PBI_CV_807533A8_7DBB_41E8_AF46_0450D3447E61",
     "visualClassName": "Visual",
     "version": "1.0.0",
-    "description": "",
-    "supportUrl": "",
-    "gitHubUrl": ""
+    "description": "<span>Decision trees is schematic tree-shaped diagram used to determine a course of action and/or show a statistical probability. Current visual implements the popular and widely used tools of recursive partitioning for decision tree construction. You can control the algorithm parameters and the visual attributes to suit your needs.<br/><br/><span style='font-style:italic'>Service prerequisites:</span> R-powered custom visual is used in service seamlessly<br/><br /><span style='font-style:italic'>Desktop prerequisites:</span> To run R scripts in Power BI Desktop, you must separately install R on your local computer.<br />You can download and install R for free from the <a href='https://mran.revolutionanalytics.com/download/'>Revolution Open download page</a> or the <a href='https://cran.r-project.org/bin/windows/base/'>CRAN Repository</a><br /><br /> <span style='font-style:italic'> R package dependencies(auto-installed): </span> rpart, rpart.plot, RColorBrewer <br /></span>",
+    "supportUrl": "http://community.powerbi.com/",
+    "gitHubUrl": "https://github.com/microsoft/PowerBI-visuals-decision-tree"
   },
   "apiVersion": "1.2.0",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Microsoft",
+    "email": "pbicvsupport@microsoft.com"
   },
   "assets": {
     "icon": "assets/icon.png"

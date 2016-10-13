@@ -59,7 +59,7 @@
         }
       }
     },
-    "settings1":{
+    "settings_tree_params":{
         "displayName": "Tree parameters",
         "properties": {
            "show": {
@@ -184,7 +184,7 @@
 
         }
     },
-    "settings2":{
+    "settings_opt_params":{
         "displayName": "Optimization parameters",
         "description": "Advanced parameters to control the recursive partitioning algorithm",
         "properties": {
@@ -321,7 +321,7 @@
           } 
         }
     },
-    "settings3":{
+    "settings_additional_params":{
         "displayName": "Additional parameters",
         "properties": {
            "show": {

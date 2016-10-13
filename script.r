@@ -70,25 +70,25 @@ if(!exists( "dataset" ))
 
 ############ User Parameters #########
 
-if(exists("settings1_show") && settings1_show == FALSE)
-  rm(list= ls(pattern = "settings1_"))
-if(exists("settings2_show") && settings2_show == FALSE)
-  rm(list= ls(pattern = "settings2_"))
-if(exists("settings3_show") && settings3_show == FALSE)
-  rm(list= ls(pattern = "settings3_"))
+if(exists("settings_tree_params_show") && settings_tree_params_show == FALSE)
+  rm(list= ls(pattern = "settings_tree_params_"))
+if(exists("settings_opt_params_show") && settings_opt_params_show == FALSE)
+  rm(list= ls(pattern = "settings_opt_params_"))
+if(exists("settings_additional_params_show") && settings_additional_params_show == FALSE)
+  rm(list= ls(pattern = "settings_additional_params_"))
 
 
 ##PBI_PARAM: Should warnings messages be displayed?
 #Type:logical, Default:TRUE, Range:NA, PossibleValues:NA, Remarks: NA
 showWarnings  =  TRUE
-if(exists("settings3_showWarnings"))
-  showWarnings = settings3_showWarnings
+if(exists("settings_additional_params_showWarnings"))
+  showWarnings = settings_additional_params_showWarnings
 
 ##PBI_PARAM: the maximum depth of  the final tree [1, 30]
 #Type:positive integer, Default:20, Range:[1, 30], PossibleValues:NA, Remarks: The tree of maxDepth is not promised
 maxDepth   =   20
-if(exists("settings1_maxDepth"))
-  maxDepth = as.numeric(settings1_maxDepth)
+if(exists("settings_tree_params_maxDepth"))
+  maxDepth = as.numeric(settings_tree_params_maxDepth)
 
 ###############Library Declarations###############
 libraryRequireInstall = function(packageName, ...)
@@ -106,21 +106,21 @@ libraryRequireInstall("RColorBrewer")
 ##PBI_PARAM: Should info text be displayed in subtitle?
 #Type:logical, Default:TRUE, Range:NA, PossibleValues:NA, Remarks: NA
 showInfo  =  TRUE
-if(exists("settings3_showInfo"))
-  showInfo = settings3_showInfo
+if(exists("settings_additional_params_showInfo"))
+  showInfo = settings_additional_params_showInfo
 
 ##PBI_PARAM: Complexity parameter. 
 # Any split that does not decrease the overall lack of fit by a factor of complexity is not attempted.
 #Type:numeric, Default:1e-05, Range:[0, 1], PossibleValues:NA, Remarks: If complexity and xval are 0 tree is maximal
 complexity   =  1e-05 
-if(exists("settings2_complexity"))
-  complexity = as.numeric(settings2_complexity)
+if(exists("settings_opt_params_complexity"))
+  complexity = as.numeric(settings_opt_params_complexity)
 
 ##PBI_PARAM: the minimum number of observations in any terminal (leaf) node 
 #Type:positive integer, Default:2, Range:[1, 100], PossibleValues:NA, Remarks: NA
 minBucket  =  2
-if(exists("settings1_minBucket"))
-  minBucket = as.numeric(settings1_minBucket)
+if(exists("settings_tree_params_minBucket"))
+  minBucket = as.numeric(settings_tree_params_minBucket)
 
 ##PBI_PARAM: indicator if xval parameter is to be found automatically 
 #Type:bool, Default:TRUE, Range:NA, PossibleValues:NA, Remarks: NA
@@ -129,8 +129,8 @@ autoXval  =  FALSE
 ##PBI_PARAM: number of cross-validations, used only if autoXval  =  FALSE
 #Type:integer, Default:10, Range:[0, 1000], PossibleValues:NA, Remarks: Can not be larger than number of records
 xval  =  NA
-if(exists("settings2_xval"))
-  xval = as.numeric(settings2_xval)
+if(exists("settings_opt_params_xval"))
+  xval = as.numeric(settings_opt_params_xval)
 
 if(is.na(xval))
   autoXval = TRUE
@@ -146,8 +146,8 @@ minRows  =  10
 ##PBI_PARAM: maximum attempts to construct tree with optimal depth > 1 
 #Type: positive integer, Default:10, Range:[1, 50], PossibleValues:NA, Remarks: NA
 maxNumAttempts  =  10
-if(exists("settings2_maxNumAttempts"))
-  maxNumAttempts = as.numeric(settings2_maxNumAttempts)
+if(exists("settings_opt_params_maxNumAttempts"))
+  maxNumAttempts = as.numeric(settings_opt_params_maxNumAttempts)
 
 ###############Internal functions definitions#################
 
