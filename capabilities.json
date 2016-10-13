@@ -1,0 +1,343 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "Target Variable",
+      "kind": "GroupingOrMeasure",
+      "name": "Target"
+    },
+	{
+      "displayName": "Input Variables",
+      "kind": "Grouping",
+      "name": "Variables"
+    }
+  ],
+  "dataViewMappings": [
+    {
+	 "conditions": [
+           { "Target": { "max": 1 }, "Variables": { "max": 1000 } }
+      ],
+
+      "scriptResult": {
+        "dataInput": {
+          "table": {
+            "rows": {
+                "select": [
+                { "for": { "in": "Target" } },
+                { "for": { "in": "Variables" } }
+              ],
+              "dataReductionAlgorithm": {
+                "top": { }
+              }
+            }
+          }
+        },
+        "script": {
+          "scriptProviderDefault": "R",
+          "scriptOutputType": "png",
+          "source": {
+            "objectName": "rcv_script",
+            "propertyName": "source"
+          },
+          "provider": {
+            "objectName": "rcv_script",
+            "propertyName": "provider"
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+    "rcv_script": {
+      "properties": {
+        "provider": {
+          "type": { "text": true }
+        },
+        "source": {
+          "type": {
+            "scripting": { "source": true }
+          }
+        }
+      }
+    },
+    "settings_tree_params":{
+        "displayName": "Tree parameters",
+        "properties": {
+           "show": {
+                "type": {"bool": true}
+            },
+            "maxDepth":{
+            "displayName": "Maximal depth ",
+             "description": "Remark: The exact maximal depth is not guaranteed",
+            "type": {
+                "enumeration": [
+                  {
+                    "displayName": "2",
+                    "value": "2"
+                  },
+                   {
+                    "displayName": "3",
+                    "value": "3"
+                  },
+                  {
+                    "displayName": "4",
+                    "value": "4"
+                  },
+                   {
+                    "displayName": "5",
+                    "value": "5"
+                  },
+                  {
+                    "displayName": "6",
+                    "value": "6"
+                  },
+                   {
+                    "displayName": "7",
+                    "value": "7"
+                  },
+                  {
+                    "displayName": "8",
+                    "value": "8"
+                  },
+                   {
+                    "displayName": "9",
+                    "value": "9"
+                  },
+                   {
+                    "displayName": "10",
+                    "value": "10"
+                  },
+                  {
+                    "displayName": "11",
+                    "value": "11"
+                  },
+                   {
+                    "displayName": "12",
+                    "value": "12"
+                  },
+                  {
+                    "displayName": "13",
+                    "value": "13"
+                  },
+                   {
+                    "displayName": "14",
+                    "value": "14"
+                  },
+                   {
+                    "displayName": "15",
+                    "value": "15"
+                  }
+                ]
+              }
+          },
+          "minBucket":{
+            "displayName": "Minimum bucket size ",
+            "description": "The minimum number of observations in any terminal (leaf) node",
+            "type": {
+                "enumeration": [
+                  {
+                    "displayName": "2",
+                    "value": "2"
+                  },
+                   {
+                    "displayName": "5",
+                    "value": "5"
+                  },
+                  {
+                    "displayName": "7",
+                    "value": "7"
+                  },
+                   {
+                    "displayName": "10",
+                    "value": "10"
+                  },
+                  {
+                    "displayName": "15",
+                    "value": "15"
+                  },
+                   {
+                    "displayName": "25",
+                    "value": "25"
+                  },
+                  {
+                    "displayName": "35",
+                    "value": "35"
+                  },
+                   {
+                    "displayName": "50",
+                    "value": "50"
+                  },
+                   {
+                    "displayName": "65",
+                    "value": "65"
+                  },
+                  {
+                    "displayName": "80",
+                    "value": "80"
+                  },
+                   {
+                    "displayName": "100",
+                    "value": "100"
+                  }
+                ]
+              }
+          }
+
+        }
+    },
+    "settings_opt_params":{
+        "displayName": "Optimization parameters",
+        "description": "Advanced parameters to control the recursive partitioning algorithm",
+        "properties": {
+           "show": {
+                "type": {"bool": true}
+            },
+            "complexity":{
+            "displayName": "Complexity",
+            "description": "Any split that does not decrease the overall lack of fit by a factor of complexity is not attempted",
+            "type": {
+                "enumeration": [
+                  {
+                    "displayName": "0.5",
+                    "value": "0.5"
+                  },
+                  {
+                    "displayName": "0.25",
+                    "value": "0.25"
+                  },
+                  {
+                    "displayName": "0.1",
+                    "value": "0.1"
+                  },
+                  {
+                    "displayName": "0.01",
+                    "value": "0.01"
+                  },
+                   {
+                    "displayName": "1e-3",
+                    "value": "1e-3"
+                  },
+                  {
+                    "displayName": "1e-4",
+                    "value": "1e-4"
+                  },
+                   {
+                    "displayName": "1e-5",
+                    "value": "1e-5"
+                  },
+                  {
+                    "displayName": "1e-7",
+                    "value": "1e-7"
+                  },
+                   {
+                    "displayName": "1e-10",
+                    "value": "1e-10"
+                  },
+                   {
+                    "displayName": "1e-12",
+                    "value": "1e-12"
+                  }
+                ]
+              }
+          },
+          "xval":{
+            "displayName": "Cross-validation",
+            "description": "The k parameter in k-fold cross-validation",
+            "type": {
+                "enumeration": [
+                  {
+                    "displayName": "auto",
+                    "value": "auto"
+                  },
+                  {
+                    "displayName": "None",
+                    "value": "0"
+                  },
+                   {
+                    "displayName": "2-fold",
+                    "value": "2"
+                  },
+                  {
+                    "displayName": "5-fold",
+                    "value": "10"
+                  },
+                   {
+                    "displayName": "10-fold",
+                    "value": "10"
+                  },
+                  {
+                    "displayName": "25-fold",
+                    "value": "25"
+                  },
+                   {
+                    "displayName": "50-fold",
+                    "value": "50"
+                  },
+                  {
+                    "displayName": "100-fold",
+                    "value": "100"
+                  }
+                ]
+              }
+          },
+          "maxNumAttempts":{
+            "displayName": "Maximum attempts",
+            "description": "Maximum attempts to construct tree with optimal depth > 1",
+            "type": {
+                "enumeration": [
+                  {
+                    "displayName": "1",
+                    "value": "1"
+                  },
+                   {
+                    "displayName": "3",
+                    "value": "3"
+                  },
+                  {
+                    "displayName": "7",
+                    "value": "7"
+                  },
+                   {
+                    "displayName": "10",
+                    "value": "10"
+                  },
+                  {
+                    "displayName": "25",
+                    "value": "25"
+                  },
+                   {
+                    "displayName": "50",
+                    "value": "50"
+                  },
+                  {
+                    "displayName": "100",
+                    "value": "100"
+                  },
+                   {
+                    "displayName": "1000",
+                    "value": "1000"
+                  }
+                ]
+              }
+          } 
+        }
+    },
+    "settings_additional_params":{
+        "displayName": "Additional parameters",
+        "properties": {
+           "show": {
+                "type": {"bool": true}
+            },
+          "showWarnings":{
+            "displayName": "Show warnings",
+            "type": {  "bool": true}
+          },
+          "showInfo":{
+            "displayName": "Show info",
+            "description": "Show info of the final decision tree. Includes: training error, cross-validation error, root error ",
+            "type": {  "bool": true}
+          }
+        }
+    } 
+  },
+  "suppressDefaultTitle": true
+}
