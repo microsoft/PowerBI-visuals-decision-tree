@@ -66,8 +66,8 @@
                 "type": {"bool": true}
             },
             "maxDepth":{
-            "displayName": "Maximal depth ",
-             "description": "Remark: The exact maximal depth is not guaranteed",
+            "displayName": "Maximum depth",
+             "description": "Maximum depth (approximate)",
             "type": {
                 "enumeration": [
                   {
@@ -131,7 +131,7 @@
           },
           "minBucket":{
             "displayName": "Minimum bucket size ",
-            "description": "The minimum number of observations in any terminal (leaf) node",
+            "description": "Minimum number of observations in any terminal (leaf) node",
             "type": {
                 "enumeration": [
                   {
@@ -185,15 +185,15 @@
         }
     },
     "settings_opt_params":{
-        "displayName": "Optimization parameters",
-        "description": "Advanced parameters to control the recursive partitioning algorithm",
+        "displayName": "Advanced parameters",
+        "description": "Controls the recursive partitioning algorithm",
         "properties": {
            "show": {
                 "type": {"bool": true}
             },
             "complexity":{
             "displayName": "Complexity",
-            "description": "Any split that does not decrease the overall lack of fit by a factor of complexity is not attempted",
+            "description": "Split that does not decrease the overall lack of fit by a factor of complexity is not attempted",
             "type": {
                 "enumeration": [
                   {
@@ -241,7 +241,7 @@
           },
           "xval":{
             "displayName": "Cross-validation",
-            "description": "The k parameter in k-fold cross-validation",
+            "description": "The k parameter in k-fold cross validation",
             "type": {
                 "enumeration": [
                   {
@@ -281,7 +281,7 @@
           },
           "maxNumAttempts":{
             "displayName": "Maximum attempts",
-            "description": "Maximum attempts to construct tree with optimal depth > 1",
+            "description": "Maximum attempts to construct the tree with an optimal depth greater than one",
             "type": {
                 "enumeration": [
                   {
@@ -333,7 +333,7 @@
           },
           "showInfo":{
             "displayName": "Show info",
-            "description": "Show info of the final decision tree. Includes: training error, cross-validation error, root error ",
+            "description": "Display information about the final decision tree (includes training error, cross validation error, root error)",
             "type": {  "bool": true}
           }
         }

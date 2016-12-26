@@ -1,11 +1,6 @@
 {
   "cranPackages": [
     {
-      "name": "rpart",
-      "displayName": "rpart: Recursive Partitioning and Regression Trees",
-      "url": "https://cran.r-project.org/web/packages/rpart/index.html"
-    },
-    {
       "name": "rpart.plot",
       "displayName": "rpart.plot: Plot 'rpart' Models",
       "url": "https://cran.r-project.org/web/packages/rpart.plot/index.html"
