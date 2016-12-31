@@ -37,8 +37,6 @@
 #
 # REFERENCES: https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html
 
-#save(list = ls(all.names = TRUE), file='C:/Users/boefraty/projects/PBI/R/R_visuals_gallery/tempData.Rda')
-
 
 
 if(exists("Target") && !exists("Variables"))
@@ -207,6 +205,8 @@ rootNodeError<-function(labels)
 # which may be missing on user's machine 
 replaceFancyRpartPlot<-function (model, main  =  "", sub  =  "", palettes, ...) 
 {
+  if(nchar(sub)>round(par()$din[1]/0.075) && nchar(sub)> 1)
+    sub = paste(substring(sub,1,floor(par()$din[1]/0.075)),"...",sep="")
 
   num.classes <- length(attr(model, "ylevels"))
   
@@ -244,7 +244,7 @@ replaceFancyRpartPlot<-function (model, main  =  "", sub  =  "", palettes, ...)
   rpart.plot::prp(model, type  =  2, extra  =  extra, box.col  =  pals[col.index], 
                   nn  =  TRUE, varlen  =  0, faclen  =  0, shadow.col  =  "grey", 
                   fallen.leaves  =  TRUE, branch.lty  =  3, ...)
-  title(main  =  main, sub  =  sub)
+  title(main  =  main, sub  =  sub, cex.sub = 0.8)
 }
 
 
@@ -307,8 +307,8 @@ if(goodDim && opt$ind>1)
   
 }else{
   if( showWarnings )
-    pbiWarning <- ifelse(goodDim, paste("The tree depth is zero. Root error  =  ", d2form(rooNodeErr), sep  =  ""), 
-                                     "Wrong data dimensionality" )
+    pbiWarning <- ifelse(goodDim, paste("The tree depth is zero.\n Root error  =  ", d2form(rooNodeErr), sep  =  ""), 
+                                     "\n Wrong data dimensionality" )
   
   plot.new()
   title( main  =  NULL, sub  =  pbiWarning, outer  =  FALSE, col.sub  =  "gray50" )
