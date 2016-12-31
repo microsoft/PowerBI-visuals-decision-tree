@@ -193,7 +193,7 @@
             },
             "complexity":{
             "displayName": "Complexity",
-            "description": "Split that does not decrease the overall lack of fit by a factor of complexity is not attempted",
+            "description": "Split that does not decrease the overall lack of fit by a factor of 'complexity' is not attempted",
             "type": {
                 "enumeration": [
                   {

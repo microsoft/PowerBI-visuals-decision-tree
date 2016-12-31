@@ -37,8 +37,6 @@
 #
 # REFERENCES: https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html
 
-#save(list = ls(all.names = TRUE), file='C:/Users/boefraty/projects/PBI/tempData.Rda')
-
 
 
 if(exists("Target") && !exists("Variables"))
