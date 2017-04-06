@@ -24,31 +24,31 @@
  *  THE SOFTWARE.
  */
 module powerbi.extensibility.visual {
-    
-     interface VisualSettingsTreeParams {//tree
+
+    interface VisualSettingsTreeParams {// tree
         show: boolean;
-        maxDepth: string;      
-        minBucket: string;            
+        maxDepth: string;
+        minBucket: string;
     }
 
-     interface VisualSettingsOptParams {//optimization
+    interface VisualSettingsOptParams {// optimization
         show: boolean;
-        complexity: string;     
+        complexity: string;
         xval: string;
         maxNumAttempts: string;
-     }
+    }
 
-     interface VisualSettingsAdditionalParams {//additional 
+    interface VisualSettingsAdditionalParams {// additional
         show: boolean;
         showWarnings: boolean;
         showInfo: boolean;
-     }
+    }
 
     export class Visual implements IVisual {
         private imageDiv: HTMLDivElement;
         private imageElement: HTMLImageElement;
 
-         private settings_tree_params: VisualSettingsTreeParams;
+        private settings_tree_params: VisualSettingsTreeParams;
         private settings_opt_params: VisualSettingsOptParams;
         private settings_additional_params: VisualSettingsAdditionalParams;
 
@@ -56,7 +56,7 @@ module powerbi.extensibility.visual {
             this.imageDiv = document.createElement('div');
             this.imageDiv.className = 'rcv_autoScaleImageContainer';
             options.element.appendChild(this.imageDiv);
-            
+
             this.imageElement = document.createElement('img');
             this.imageElement.className = 'rcv_autoScaleImage';
 
@@ -69,7 +69,7 @@ module powerbi.extensibility.visual {
             };
             this.settings_opt_params = <VisualSettingsOptParams>{
                 show: false,
-                complexity: "1e-5",              
+                complexity: "1e-5",
                 xval: "auto",
                 maxNumAttempts: "10"
             };
@@ -126,11 +126,11 @@ module powerbi.extensibility.visual {
             this.imageDiv.style.width = finalViewport.width + 'px';
         }
 
- public enumerateObjectInstances(options: EnumerateVisualObjectInstancesOptions): VisualObjectInstanceEnumeration {
+        public enumerateObjectInstances(options: EnumerateVisualObjectInstancesOptions): VisualObjectInstanceEnumeration {
             let objectName = options.objectName;
             let objectEnumeration = [];
 
-            switch(objectName) {
+            switch (objectName) {
                 case 'settings_tree_params':
                     objectEnumeration.push({
                         objectName: objectName,
@@ -138,7 +138,7 @@ module powerbi.extensibility.visual {
                             show: this.settings_tree_params.show,
                             maxDepth: this.settings_tree_params.maxDepth,
                             minBucket: this.settings_tree_params.minBucket,
-                            
+
                          },
                         selector: null
                     });
