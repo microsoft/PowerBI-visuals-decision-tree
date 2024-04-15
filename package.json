@@ -8,7 +8,7 @@
     "start": "pbiviz start"
   },  
   "devDependencies": {
-    "tslint": "^4.4.2",
+    "tslint": "^6.1.3",
     "tslint-microsoft-contrib": "^4.0.0",
     "powerbi-visuals-tools": "1.6.2"
   }
