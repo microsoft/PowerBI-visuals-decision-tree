@@ -5,7 +5,8 @@
     "pbiviz": "pbiviz",
     "package": "pbiviz package",
     "lint": "tslint -r \"node_modules/tslint-microsoft-contrib\" \"+(src)/**/*.ts\"",
-    "start": "pbiviz start"
+    "start": "pbiviz start",
+    "test": "echo \"Error: no test specified\""
   },  
   "devDependencies": {
     "tslint": "^4.4.2",
